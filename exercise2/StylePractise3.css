@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Courier New', Courier, monospace; 
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px;
+    margin: 0;
+}
+
+.main-container {
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    padding: 50px;
+    border: 1px solid #81d4fa;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header-section h1 {
+    font-weight: normal;
+    color: #333;
+    line-height: 1.5;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.card-column {
+    flex: 1; 
+}
+.text-column {
+    flex: 1.5; 
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.text-column p {
+    margin-bottom: 30px;
+}
+
+.white-card {
+    background: white;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    border: 1px solid #eee;
+}
+
+.white-card h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card-desc {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+.author-info p {
+    font-size: 12px;
+    color: #4fc3f7; 
+    margin: 5px 0 0 0;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; 
+    }
+}

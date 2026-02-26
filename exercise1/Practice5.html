@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>HR Management System</title>
+    <link rel="stylesheet" href="stlyePractice5.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <span class="brand">HR Management</span>
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="nav-right">
+            <input type="text" placeholder="Search...">
+            <button class="btn-search">Search</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h2>Employee</h2>
+            <button class="btn-add" id="openModal">+ Add</button>
+        </div>
+
+        <table class="employee-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Position</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Fatima Beatriz</td>
+                    <td>Fatima.Beatriz@gmail.com</td>
+                    <td>0985674321</td>
+                    <td>Staff</td>
+                    <td>
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Gabriel Hanna</td>
+                    <td>Gabriel.Hanna@gmail.com</td>
+                    <td>0353674231</td>
+                    <td>Staff</td>
+                    <td>
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>New Employee</h3>
+                <span class="close-icon" id="closeIcon">&times;</span>
+            </div>
+            <form class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Position</label>
+                        <select>
+                            <option>-- Select Position --</option>
+                            <option>Staff</option>
+                            <option>Manager</option>
+                            <option>CEO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Sex</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="sex"> Male</label>
+                        <label><input type="radio" name="sex"> Female</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-save">Save</button>
+                    <button type="button" class="btn-cancel" id="closeBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const openBtn = document.getElementById('openModal');
+        const closeIcon = document.getElementById('closeIcon');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // Mở modal
+        openBtn.onclick = () => modal.style.display = 'flex';
+
+        // Đóng modal khi bấm X hoặc nút Cancel
+        closeIcon.onclick = () => modal.style.display = 'none';
+        closeBtn.onclick = () => modal.style.display = 'none';
+
+        // Đóng khi bấm ra ngoài vùng trắng
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
