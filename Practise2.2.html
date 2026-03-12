@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Đặt Hàng</title>
+    <style>
+        :root { --primary: #27ae60; --error: #e74c3c; --border: #ddd; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 40px; }
+        .card { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 500px; }
+        h2 { color: var(--primary); text-align: center; margin-top: 0; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: 600; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 5px; box-sizing: border-box; }
+        .error-msg { color: var(--error); font-size: 13px; min-height: 18px; margin-top: 3px; }
+        .char-count { text-align: right; font-size: 12px; color: #666; }
+        .total-box { background: #e8f5e9; padding: 15px; border-radius: 5px; font-weight: bold; font-size: 18px; color: var(--primary); margin: 15px 0; text-align: center; }
+        
+        /* Modal Xác Nhận */
+        #confirmOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+        .modal { background: #fff; padding: 25px; border-radius: 8px; width: 90%; max-width: 400px; }
+        .modal-btns { display: flex; gap: 10px; margin-top: 20px; }
+        button { flex: 1; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn-main { background: var(--primary); color: #fff; }
+        .btn-cancel { background: #bdc3c7; color: #333; }
+        .red-count { color: var(--error); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="card" id="mainCard">
+    <h2>📦 Đặt Hàng Trực Tuyến</h2>
+    <form id="orderForm" novalidate>
+        <div class="form-group">
+            <label>Sản phẩm</label>
+            <select id="product">
+                <option value="">-- Chọn sản phẩm --</option>
+                <option value="Laptop">Laptop (20.000.000đ)</option>
+                <option value="iPhone">iPhone (25.000.000đ)</option>
+                <option value="Tai nghe">Tai nghe (2.500.000đ)</option>
+            </select>
+            <div id="productError" class="error-msg"></div>
+        </div>
+
+        <div class="form-group">
+            <label>Số lượng (1-99)</label>
+            <input type="number" id="quantity" value="1">
+            <div id="quantityError" class="error-msg"></div>
+        </div>
+
+        <div class="total-box" id="totalDisplay">Tổng tiền: 0đ</div>
+
+        <div class="form-group">
+            <label>Ngày giao hàng</label>
+            <input type="date" id="deliveryDate">
+            <div id="deliveryDateError" class="error-msg"></div>
+        </div>
+
+        <div class="form-group">
+            <label>Địa chỉ giao</label>
+            <textarea id="address" rows="2" placeholder="Nhập địa chỉ cụ thể..."></textarea>
+            <div id="addressError" class="error-msg"></div>
+        </div>
+
+        <div class="form-group">
+            <label>Ghi chú</label>
+            <textarea id="note" rows="2" maxlength="250"></textarea>
+            <div class="char-count" id="charCount">0/200</div>
+            <div id="noteError" class="error-msg"></div>
+        </div>
+
+        <div class="form-group">
+            <label>Thanh toán</label>
+            <input type="radio" name="payment" value="COD" style="width: auto;"> COD 
+            <input type="radio" name="payment" value="Chuyển khoản" style="width: auto;"> Chuyển khoản
+            <div id="paymentError" class="error-msg"></div>
+        </div>
+
+        <button type="submit" class="btn-main">Đặt Hàng Ngay</button>
+    </form>
+</div>
+
+<div id="confirmOverlay">
+    <div class="modal">
+        <h3>Xác nhận đơn hàng?</h3>
+        <div id="summaryContent"></div>
+        <div class="modal-btns">
+            <button class="btn-cancel" onclick="closeModal()">Hủy</button>
+            <button class="btn-main" onclick="finishOrder()">Xác nhận</button>
+        </div>
+    </div>
+</div>
+  <script src="Practise2.2.js"></script>
+</body>
+</html>
