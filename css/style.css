@@ -1,0 +1,332 @@
+/* =========================================
+   1. RESET & SETUP (Thiết lập cơ bản)
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #3498db;
+    /* Màu chính - Blue */
+    --success: #2ecc71;
+    /* Màu cho nút Thêm/Lưu (Create) */
+    --warning: #f1c40f;
+    /* Màu cho nút Sửa (Update) */
+    --danger: #e74c3c;
+    /* Màu cho nút Xóa (Delete) */
+    --dark: #2c3e50;
+    /* Màu chữ/nền tối */
+    --light: #f4f7f6;
+    /* Màu nền sáng */
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   2. LAYOUT (Bố cục hệ thống)
+   ========================================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* =========================================
+   3. COMPONENTS (Các thành phần CRUD)
+   ========================================= */
+
+
+/* --- Form (Dùng cho Create/Update) --- */
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+/* --- Buttons (Nút bấm chức năng) --- */
+
+
+/*(!/^\S+@\S+\.\S+$/.test(email)*)*/
+
+
+/*!/^0\d{9}$/.test(phone)*/
+
+.btn {
+    padding: 8px 16px;
+    border: 1px solid var(--dark);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    color: var(--dark);
+}
+
+.btn-create {
+    background-color: var(--success);
+}
+
+.btn-update {
+    background-color: var(--warning);
+}
+
+.btn-delete {
+    background-color: var(--danger);
+}
+
+.btn-info {
+    background-color: var(--primary);
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+
+/* --- Table (Dùng cho Read) --- */
+
+.table-data {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-data th,
+.table-data td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.table-data th {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+
+/* --- Modal (Hộp thoại ẩn/hiện) --- */
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: none;
+    /* Dùng JS để chuyển thành block */
+}
+
+
+/* =========================================
+   4. UTILITIES (Tiện ích bổ sung)
+   ========================================= */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Navbar Styling --- */
+
+.navbar {
+    background-color: var(--green);
+    padding: 15px 0;
+    border-bottom: 2px solid #1e0404;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h2 {
+    color: var(--dark);
+    font-weight: 700;
+    margin: 0;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+    /* Khoảng cách giữa 2 nút */
+}
+
+.table-data {
+    border: 1px solid #eee;
+}
+
+.table-data th {
+    background-color: #f8f9fa;
+    /* Đổi màu header table cho giống ảnh */
+    color: #6c757d;
+    text-transform: none;
+    font-size: 14px;
+}
+
+.table-data td {
+    padding: 20px 15px;
+    /* Giãn cách các dòng cho thoáng */
+    vertical-align: middle;
+}
+
+
+/* Hiệu ứng khi rê chuột vào dòng */
+
+.table-data tr:hover {
+    background-color: #fcfcfc;
+}
+
+
+/* Tùy chỉnh input cho bo tròn hơn */
+
+.form-input {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.priority-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.error-msg {
+    color: var(--danger);
+    /* Sử dụng biến màu đỏ đã có */
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+    /* Đảm bảo thông báo nằm dưới input */
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+
+/* Tùy chọn: Thêm viền đỏ cho input khi có lỗi */
+
+.form-input.is-invalid {
+    border-color: var(--danger);
+    background-color: #fff8f8;
+}
+
+
+/* Label định dạng chung */
+
+.priority-label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+/* Container để các nút nằm ngang hàng */
+
+.priority-options {
+    display: flex;
+    gap: 10px;
+    /* Khoảng cách giữa các nút */
+}
+
+
+/* Định dạng chung cho tất cả các nút priority */
+
+.btn {
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+
+/* Định dạng riêng từng cấp độ */
+
+.btn-high {
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+.btn-high:hover {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-medium {
+    border: 1px solid var(--warning);
+    color: var(--warning);
+}
+
+.btn-medium:hover {
+    background: var(--warning);
+    color: white;
+}
+
+.btn-low {
+    border: 1px solid #28a745;
+    /* Ví dụ màu xanh cho mức thấp */
+    color: #28a745;
+}
+
+.btn-low:hover {
+    background: #28a745;
+    color: white;
+}
+
+.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}

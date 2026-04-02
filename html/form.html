@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=screen-width ,intitial scale=1.0">
+    <title>Device List</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="modal shadow" style="display: block; width: 400px;">
+        <div class="flex-between" style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px;">
+            <h2 style="font-size: 20px; font-weight: 600;">Thêm hội thảo mới</h2>
+            <span style="cursor: pointer; font-size: 20px; color: #666;">&times;</span>
+        </div>
+
+        <form id="Form" novalidate>
+            <div class="form-group">
+                <label class="priority-label" for="phoneInput">Diễn giả</label>
+                <input id="nameInput" type="text" class="form-input" placeholder="Họ tên diễn giả">
+                <span id="nameError" class="error-msg" style="display:none;"></span>
+            </div>
+            <div class="form-group">
+                <label class="priority-label" for="nameInput">Tên hội thảo</label>
+                <input id="nameCInput" type="text" class="form-input" placeholder="Nhập tên sự kiện">
+                <span id="nameCError" class="error-msg" style="display:none;"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="priority-label" for="emailInput">Email</label>
+                <input id="emailInput" type="email" class="form-input" placeholder="email@example.com">
+                <span id="emailError" class="error-msg" style="display:none;"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="priority-label" for="addressInput">Địa điểm</label>
+                <textarea id="addressInput" class="form-input" rows="3" style="resize: none;" placeholder="Hội trường/địa chỉ"></textarea>
+                <span id="addressError" class="error-msg" style="display:none;"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="priority-label" for="phoneInput">Ngày tổ chức</label>
+                <input id="dateInput" type="date" class="form-input" placeholder="mm/dd/yy">
+                <span id="dateError" class="error-msg" style="display:none;"></span>
+            </div>
+
+            <div class="flex-between" style="background: #f9f9f9; margin: 20px -25px -25px -25px; padding: 15px 25px; border-radius: 0 0 8px 8px; justify-content: flex-end; gap: 10px;">
+                <button type="button" id="btnCancel" style="background: none; border: none; cursor: pointer; color: #333; font-weight: 600;">Hủy</button>
+                <button type="submit" id="btnAdd" class="btn btnAdd" style="background-color: #2c3e50; color: white; padding: 8px 25px;">Lưu</button>
+            </div>
+        </form>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
